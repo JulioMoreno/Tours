@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-
+const compression = require('compression');
 const tourRouter = require('./routes/tourRoutes');
 
 const app = express();
@@ -10,6 +10,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+app.use(compression());
 
 app.use(express.json());
 
